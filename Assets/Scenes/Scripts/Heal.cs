@@ -16,8 +16,11 @@ public class Heal : BattleAction
 
     public override void Execute(Character attacked_char)
     {
-        Debug.Log(this_char.name + " HEALING: " + this_char.attack.ToString());
-        attacked_char.ChangeHP(this_char.attack);
+        if (attacked_char != null)
+        {
+            Debug.Log(this_char.name + " HEALING " + attacked_char.name + ": " + this_char.attack.ToString());
+            attacked_char.ChangeHP(this_char.attack);
+        }
     }
 
 }

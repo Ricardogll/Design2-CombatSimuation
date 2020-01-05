@@ -49,11 +49,12 @@ public class Turn : MonoBehaviour
         }
 
         if (enemies.Count == 0)
+        {
             Debug.Log("THERE ARE NO CHARACTERS ON THE OPPOSITE TEAM");
-
+            return null;
+        }
 
         return enemies[Random.Range(0, enemies.Count)];
-
     }
 
 }

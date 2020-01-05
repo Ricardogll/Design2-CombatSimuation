@@ -15,15 +15,16 @@ public class Attack : BattleAction
 
     public override void Execute(Character attacked_char)
     {
-        
-        int damage = -this_char.attack + attacked_char.defense;
+        if (attacked_char != null)
+        {
+            int damage = -this_char.attack + attacked_char.defense;
 
-        if (damage > 0)
-            damage = 0;
+            if (damage > 0)
+                damage = 0;
 
-        Debug.Log(this_char.name + " ATTACKING: " + damage.ToString());
-        attacked_char.ChangeHP(damage);
-
+            Debug.Log(this_char.name + " ATTACKING " + attacked_char.name + ": " + damage.ToString());
+            attacked_char.ChangeHP(damage);
+        }
     }
 
 }
