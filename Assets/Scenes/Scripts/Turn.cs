@@ -1,0 +1,59 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
+
+public class Turn : MonoBehaviour
+{
+    public List<Character> characters;
+
+    public Turn(List<Character> chars)
+    {
+        characters = chars;
+    }
+
+
+    public void OrderCharacters()
+    {
+        characters.OrderByDescending(x => x.speed);
+    }
+
+
+    public void DoTurn()
+    {
+        for(int i = 0; i < characters.Count; i++)
+        {
+            BattleAction action = characters[i].ChooseRandAction();
+
+            if(action.targets_enemy)
+                action.Execute(ChooseRandEnemy(characters[i].enemy));
+            else
+                action.Execute(ChooseRandEnemy(!characters[i].enemy));
+        }
+    }
+
+    private Character ChooseRandEnemy(bool team) //Pass team of the character attacking
+    {
+
+        List<Character> enemies = new List<Character>();
+
+        for(int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].enemy != team)
+            {//See if they are on the same team (enemies vs heroes)
+
+                enemies.Add(characters[i]);
+
+            }
+
+        }
+
+        if (enemies.Count == 0)
+            Debug.Log("THERE ARE NO CHARACTERS ON THE OPPOSITE TEAM");
+
+
+        return enemies[Random.Range(0, enemies.Count)];
+
+    }
+
+}
