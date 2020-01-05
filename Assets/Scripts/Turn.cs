@@ -27,6 +27,7 @@ public class Turn : MonoBehaviour
 
     public void DoTurn()
     {
+
         for(int i = 0; i < characters.Count; i++)
         {
             BattleAction action = characters[i].ChooseRandAction();
@@ -36,6 +37,8 @@ public class Turn : MonoBehaviour
             else
                 action.Execute(ChooseRandEnemy(!characters[i].enemy));
         }
+
+        LowerBuffTimers();
     }
 
 
@@ -63,4 +66,28 @@ public class Turn : MonoBehaviour
         return enemies[Random.Range(0, enemies.Count)];
     }
 
+
+    private void LowerBuffTimers()
+    {
+
+        for (int i = 0; i < characters.Count; i++)
+        {
+
+            if (characters[i].at_buff_turns > 0)
+            {
+                characters[i].at_buff_turns--;
+
+                if(characters[i].at_buff_turns == 0)
+                {
+                    characters[i].ResetAttack();
+                }
+
+            }
+
+        }
+
+
+    }
 }
+
+

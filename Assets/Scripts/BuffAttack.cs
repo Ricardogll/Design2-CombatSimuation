@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : BattleAction
+public class BuffAttack : BattleAction
 {
     Character this_char;
+    public int buff_value;
+    public int buff_duration = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         this_char = GetComponent<Character>();
         targets_enemy = false;
-        action_name = "Heal";
+        action_name = "Fortify";
     }
 
 
@@ -19,9 +21,9 @@ public class Heal : BattleAction
     {
         if (attacked_char != null)
         {
-            Debug.Log(this_char.char_name + " healing " + attacked_char.char_name + ": " + this_char.healing.ToString());
-            attacked_char.ChangeHP(this_char.healing);
+            Debug.Log(this_char.char_name + " increases attack of " + attacked_char.char_name + " by: " + buff_value.ToString() + "%");
+            attacked_char.IncreaseAttack(buff_value, buff_duration);
+
         }
     }
-
 }

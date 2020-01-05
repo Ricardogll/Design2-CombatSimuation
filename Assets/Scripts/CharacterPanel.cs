@@ -27,7 +27,8 @@ public class CharacterPanel : MonoBehaviour
                 + "HP: " + character.hp.ToString() + "\n"
                 + "Attack: " + character.attack.ToString() + "\n"
                 + "Defense: " + character.defense.ToString() + "\n"
-                + "Speed: " + character.speed.ToString() + "\n\n"
+                + "Speed: " + character.speed.ToString() + "\n"
+                + "Healing: " + character.healing.ToString() + "\n\n"
                 + "ACTIONS";
 
             for (int i = 0; i < character.PossibleActions.Count; i++)
@@ -37,6 +38,18 @@ public class CharacterPanel : MonoBehaviour
 
             }
 
+            char_text += "\n\nSTATUS";
+
+            if (character.at_buff_turns > 0)
+            {
+                char_text += "\nAttack +" + character.attack_buff + "%";
+
+            }
+            else
+            {
+                char_text += "\nNone";
+            }
+            
 
             text.text = char_text;
         }
