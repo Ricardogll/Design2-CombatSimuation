@@ -28,7 +28,7 @@ public class CharacterPanel : MonoBehaviour
                 + "Attack: " + character.attack.ToString() + "\n"
                 + "Defense: " + character.defense.ToString() + "\n"
                 + "Speed: " + character.speed.ToString() + "\n"
-                + "Healing: " + character.healing.ToString() + "\n\n"
+                + "(" + character.healing_charges + ") " + "Healing: " + character.healing.ToString() + "\n\n"
                 + "ACTIONS";
 
             for (int i = 0; i < character.PossibleActions.Count; i++)

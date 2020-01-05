@@ -406,6 +406,8 @@ GameObject:
   - component: {fileID: 130708443}
   - component: {fileID: 130708442}
   - component: {fileID: 130708441}
+  - component: {fileID: 130708444}
+  - component: {fileID: 130708445}
   m_Layer: 0
   m_Name: enemy 2
   m_TagString: Untagged
@@ -439,8 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a6ed3cd98c38b4a8bc441c3f1be81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 0
   action_name: Default
+  targets_enemy: 0
 --- !u!114 &130708442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,8 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75c661cad79c74e890bc2c6743c724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 1
   action_name: Default
+  targets_enemy: 1
 --- !u!114 &130708443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,18 +469,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddcf14d80c5c0b4f89d372853a912f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: ENEMY222
+  char_name: Lancer
   enemy: 1
-  hp: 20
+  hp: 50
   attack: 5
   defense: 1
+  healing: 20
   speed: 1
   AllActions:
   - {fileID: 130708442}
   - {fileID: 130708441}
+  - {fileID: 130708444}
+  - {fileID: 130708445}
   PossibleActions:
   - {fileID: 130708442}
   - {fileID: 130708441}
+  - {fileID: 130708444}
+  - {fileID: 130708445}
+  trapped: 0
+  attack_buff: 0
+  at_buff_turns: 0
+  base_attack: 0
+  base_hp: 0
+  healing_charges: 2
+--- !u!114 &130708444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130708439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8e0e550a7237b46b2908f1fa82ed84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  damage: -10
+--- !u!114 &130708445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130708439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ebb2c05cc9e9d4bb8c2a1f539437e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  buff_value: 65
+  buff_duration: 3
 --- !u!1 &174132056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1173,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114443757289098142, guid: 55abec7d6832f46fea72ac38ef269343,
+        type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 224671642673878178, guid: 55abec7d6832f46fea72ac38ef269343,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1409,6 +1458,8 @@ GameObject:
   - component: {fileID: 978764722}
   - component: {fileID: 978764721}
   - component: {fileID: 978764720}
+  - component: {fileID: 978764724}
+  - component: {fileID: 978764725}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -1428,8 +1479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a6ed3cd98c38b4a8bc441c3f1be81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 0
   action_name: Default
+  targets_enemy: 0
 --- !u!114 &978764721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,8 +1493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75c661cad79c74e890bc2c6743c724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 1
   action_name: Default
+  targets_enemy: 1
 --- !u!114 &978764722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,18 +1507,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddcf14d80c5c0b4f89d372853a912f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: ENEMY
+  char_name: Tank
   enemy: 1
-  hp: 20
+  hp: 50
   attack: 5
   defense: 1
+  healing: 20
   speed: 1
   AllActions:
   - {fileID: 978764721}
   - {fileID: 978764720}
+  - {fileID: 978764724}
+  - {fileID: 978764725}
   PossibleActions:
   - {fileID: 978764721}
   - {fileID: 978764720}
+  - {fileID: 978764724}
+  - {fileID: 978764725}
+  trapped: 0
+  attack_buff: 0
+  at_buff_turns: 0
+  base_attack: 0
+  base_hp: 0
+  healing_charges: 2
 --- !u!4 &978764723
 Transform:
   m_ObjectHideFlags: 0
@@ -1482,6 +1544,37 @@ Transform:
   m_Father: {fileID: 1527864520}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &978764724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978764719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8e0e550a7237b46b2908f1fa82ed84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  damage: -10
+--- !u!114 &978764725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978764719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ebb2c05cc9e9d4bb8c2a1f539437e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  buff_value: 65
+  buff_duration: 3
 --- !u!1 &1132716956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,6 +1786,8 @@ GameObject:
   - component: {fileID: 1680428213}
   - component: {fileID: 1680428212}
   - component: {fileID: 1680428211}
+  - component: {fileID: 1680428215}
+  - component: {fileID: 1680428216}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1712,8 +1807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a6ed3cd98c38b4a8bc441c3f1be81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 0
   action_name: Default
+  targets_enemy: 0
 --- !u!114 &1680428212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,8 +1821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75c661cad79c74e890bc2c6743c724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 1
   action_name: Default
+  targets_enemy: 1
 --- !u!114 &1680428213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,18 +1835,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddcf14d80c5c0b4f89d372853a912f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: HERO
+  char_name: Hero
   enemy: 0
-  hp: 10
+  hp: 50
   attack: 2
   defense: 1
+  healing: 20
   speed: 5
   AllActions:
   - {fileID: 1680428212}
   - {fileID: 1680428211}
+  - {fileID: 1680428215}
+  - {fileID: 1680428216}
   PossibleActions:
   - {fileID: 1680428212}
   - {fileID: 1680428211}
+  - {fileID: 1680428215}
+  - {fileID: 1680428216}
+  trapped: 0
+  attack_buff: 0
+  at_buff_turns: 0
+  base_attack: 0
+  base_hp: 0
+  healing_charges: 2
 --- !u!4 &1680428214
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,6 +1872,37 @@ Transform:
   m_Father: {fileID: 1527864520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1680428215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680428210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8e0e550a7237b46b2908f1fa82ed84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  damage: -10
+--- !u!114 &1680428216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680428210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ebb2c05cc9e9d4bb8c2a1f539437e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  buff_value: 65
+  buff_duration: 3
 --- !u!1 &1766969495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1915,8 @@ GameObject:
   - component: {fileID: 1766969499}
   - component: {fileID: 1766969498}
   - component: {fileID: 1766969497}
+  - component: {fileID: 1766969500}
+  - component: {fileID: 1766969501}
   m_Layer: 0
   m_Name: player 2
   m_TagString: Untagged
@@ -1811,8 +1950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a6ed3cd98c38b4a8bc441c3f1be81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 0
   action_name: Default
+  targets_enemy: 0
 --- !u!114 &1766969498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,8 +1964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75c661cad79c74e890bc2c6743c724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets_enemy: 1
   action_name: Default
+  targets_enemy: 1
 --- !u!114 &1766969499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1839,15 +1978,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddcf14d80c5c0b4f89d372853a912f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: HERO222
+  char_name: Hero 2
   enemy: 0
-  hp: 10
+  hp: 50
   attack: 2
   defense: 1
+  healing: 20
   speed: 5
   AllActions:
   - {fileID: 1766969498}
   - {fileID: 1766969497}
+  - {fileID: 1766969500}
+  - {fileID: 1766969501}
   PossibleActions:
   - {fileID: 1766969498}
   - {fileID: 1766969497}
+  - {fileID: 1766969500}
+  - {fileID: 1766969501}
+  trapped: 0
+  attack_buff: 0
+  at_buff_turns: 0
+  base_attack: 0
+  base_hp: 0
+  healing_charges: 2
+--- !u!114 &1766969500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766969495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8e0e550a7237b46b2908f1fa82ed84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  damage: -10
+--- !u!114 &1766969501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766969495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ebb2c05cc9e9d4bb8c2a1f539437e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_name: Default
+  targets_enemy: 1
+  buff_value: 65
+  buff_duration: 3
