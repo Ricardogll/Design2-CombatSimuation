@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public string name = "Name";
+    public string char_name = "Name";
     public bool enemy = false;
     public int hp;
     public int attack;
@@ -12,6 +12,10 @@ public class Character : MonoBehaviour
     public int speed;
     public List<BattleAction> AllActions;
     public List<BattleAction> PossibleActions;
+
+    [HideInInspector]
+    public bool trapped = false;
+
 
 
     public BattleAction ChooseRandAction()

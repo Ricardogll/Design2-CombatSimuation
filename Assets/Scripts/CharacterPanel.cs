@@ -23,7 +23,7 @@ public class CharacterPanel : MonoBehaviour
         if (text != null)
         {
 
-            string char_text = character.name + "\n\n"
+            string char_text = character.char_name + "\n\n"
                 + "HP: " + character.hp.ToString() + "\n"
                 + "Attack: " + character.attack.ToString() + "\n"
                 + "Defense: " + character.defense.ToString() + "\n"

@@ -19,7 +19,7 @@ public class Heal : BattleAction
     {
         if (attacked_char != null)
         {
-            Debug.Log(this_char.name + " HEALING " + attacked_char.name + ": " + this_char.attack.ToString());
+            Debug.Log(this_char.char_name + " healing " + attacked_char.char_name + ": " + this_char.attack.ToString());
             attacked_char.ChangeHP(this_char.attack);
         }
     }

@@ -16,8 +16,14 @@ public class Turn : MonoBehaviour
     public void OrderCharacters()
     {
         characters.OrderByDescending(x => x.speed);
-    }
 
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].hp <= 0)
+                characters.RemoveAt(i);
+        }
+
+    }
 
     public void DoTurn()
     {
@@ -32,6 +38,8 @@ public class Turn : MonoBehaviour
         }
     }
 
+
+
     private Character ChooseRandEnemy(bool team) //Pass team of the character attacking
     {
 
@@ -41,9 +49,7 @@ public class Turn : MonoBehaviour
         {
             if (characters[i].enemy != team)
             {//See if they are on the same team (enemies vs heroes)
-
                 enemies.Add(characters[i]);
-
             }
 
         }
