@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
         if (start_turn)
         {
             start_turn = false;
-
+            Debug.Log("------- New Turn --------");
             turn.OrderCharacters();
             turn.DoTurn();
 
