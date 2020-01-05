@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BattleAction : MonoBehaviour
 {
+    [HideInInspector]
     public bool targets_enemy = true;
+    public string action_name = "Default";
 
     // Start is called before the first frame update
     void Start()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : BattleAction
+public class Heal : BattleAction
 {
     Character this_char;
 
@@ -10,6 +10,8 @@ public class Attack : BattleAction
     void Start()
     {
         this_char = GetComponent<Character>();
+        targets_enemy = false;
+        action_name = "Heal";
     }
 
 
@@ -17,13 +19,8 @@ public class Attack : BattleAction
     {
         if (attacked_char != null)
         {
-            int damage = -this_char.attack + attacked_char.defense;
-
-            if (damage > 0)
-                damage = 0;
-
-            Debug.Log(this_char.name + " ATTACKING " + attacked_char.name + ": " + damage.ToString());
-            attacked_char.ChangeHP(damage);
+            Debug.Log(this_char.name + " HEALING " + attacked_char.name + ": " + this_char.attack.ToString());
+            attacked_char.ChangeHP(this_char.attack);
         }
     }
 

@@ -6,7 +6,7 @@ public class Game : MonoBehaviour
 {
 
     public Turn turn;
-    public bool start_game = true;
+    public bool start_turn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +17,19 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (start_game)
+        if (start_turn)
         {
-            start_game = false;
+            start_turn = false;
 
             turn.OrderCharacters();
             turn.DoTurn();
 
         }
 
+    }
+
+    public void SetStartTurn()
+    {
+        start_turn = true;
     }
 }
