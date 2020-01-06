@@ -8,8 +8,8 @@ public class DropdownAction : MonoBehaviour
 
     private Dropdown drop;
     public PlayerControl p_control;
-    public Turn turn;
-    public int current_char = 0;
+    //public Turn turn;
+   
 
     bool first_frame = true;
 
@@ -34,7 +34,7 @@ public class DropdownAction : MonoBehaviour
         }
 
     }
-    //drop.onValueChanged
+   
 
 
     public void AddOptionsToDropdown()
@@ -48,9 +48,9 @@ public class DropdownAction : MonoBehaviour
     {
         List<string> actions = new List<string>();
 
-        for(int i = 0; i < turn.characters[current_char].PossibleActions.Count; i++)
+        for(int i = 0; i < p_control.player_characters[p_control.current_char].PossibleActions.Count; i++)
         {
-            actions.Add(turn.characters[current_char].PossibleActions[i].action_name);
+            actions.Add(p_control.player_characters[p_control.current_char].PossibleActions[i].action_name);
         }
 
         drop.ClearOptions();
