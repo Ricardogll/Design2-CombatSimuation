@@ -50,7 +50,11 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player_characters.Count != 0)
+            char_text.text = player_characters[current_char].char_name;
+        else
+            char_text.text = "Default";
+
     }
 
 
@@ -105,8 +109,11 @@ public class PlayerControl : MonoBehaviour
         
 
         current_char++;
-        if (current_char > 1) //CHANGE TO 2 IF 3vs3
+        if (current_char > 1)
+        {//CHANGE TO 2 IF 3vs3
             current_char = 0;
+            turn.PlayerVSIADoTurn(player0_selection, player1_selection);
+        }
 
         drop_act.UpdateOptionsDropdown();
         drop_char.UpdateOptionsDropdownCharacters(0);
@@ -135,4 +142,6 @@ public class PlayerControl : MonoBehaviour
     }
 
     
+
+
 }
