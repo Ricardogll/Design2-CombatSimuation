@@ -46,10 +46,9 @@ public class DropdownCharacter : MonoBehaviour
 
     public void UpdateOptionsDropdownCharacters(int value)
     {
-        Debug.Log("CURRENT CHARACTER ACTION" + p_control.player_characters[0].PossibleActions[value].action_name);
-
+        
         List<string> targets = new List<string>();
-        bool target_enemy = p_control.player_characters[0].PossibleActions[value].targets_enemy;
+        bool target_enemy = p_control.player_characters[p_control.current_char].PossibleActions[value].targets_enemy;
 
         for (int i = 0; i < turn.characters.Count; i++)
         {

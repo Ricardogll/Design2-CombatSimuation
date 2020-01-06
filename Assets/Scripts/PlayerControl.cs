@@ -18,7 +18,9 @@ public class PlayerControl : MonoBehaviour
 
     Text char_text;
     public Turn turn;
-    public Selection player0_selection = new Selection();
+    [HideInInspector] public Selection player0_selection = new Selection();
+    [HideInInspector] public Selection player1_selection = new Selection();
+    [HideInInspector] public Selection player2_selection = new Selection();
     public DropdownAction drop_act;
     public DropdownCharacter drop_char;
     private Dropdown ui_dropdown_act;
@@ -79,21 +81,37 @@ public class PlayerControl : MonoBehaviour
         {
             case 0:
                 player0_selection.this_char = player_characters[0];
-                player0_selection.action = player_characters[ui_dropdown_char.value].PossibleActions[ui_dropdown_act.value];
+                player0_selection.action = player_characters[0].PossibleActions[ui_dropdown_act.value];
                 player0_selection.target_char = GetTargetCharacter(ui_dropdown_char.value, player0_selection.action.targets_enemy);
                 Debug.Log(player0_selection.this_char.char_name + " " + player0_selection.action.action_name + " " + player0_selection.target_char.char_name);
                 break;
 
             case 1:
-
+                player1_selection.this_char = player_characters[1];
+                player1_selection.action = player_characters[1].PossibleActions[ui_dropdown_act.value];
+                player1_selection.target_char = GetTargetCharacter(ui_dropdown_char.value, player1_selection.action.targets_enemy);
+                Debug.Log(player1_selection.this_char.char_name + " " + player1_selection.action.action_name + " " + player1_selection.target_char.char_name);
                 break;
 
             case 2:
-
+                player2_selection.this_char = player_characters[2];
+                player2_selection.action = player_characters[2].PossibleActions[ui_dropdown_act.value];
+                player2_selection.target_char = GetTargetCharacter(ui_dropdown_char.value, player2_selection.action.targets_enemy);
+                Debug.Log(player2_selection.this_char.char_name + " " + player2_selection.action.action_name + " " + player2_selection.target_char.char_name);
                 break;
                 
         }
 
+        
+
+        current_char++;
+        if (current_char > 1) //CHANGE TO 2 IF 3vs3
+            current_char = 0;
+
+        drop_act.UpdateOptionsDropdown();
+        drop_char.UpdateOptionsDropdownCharacters(0);
+
+        //if current char > .... look that if its the last player do the turns ***************************************************************************
     }
 
     private Character GetTargetCharacter(int value, bool target_enemy)
