@@ -58,10 +58,7 @@ public class Turn : MonoBehaviour
         }
     }
 
-    public void DoTurnChar(Character c)
-    {
-        //Turn for only 1 at a time
-    }
+   
 
     public void DoTurn()
     {//All turn in 1 go (IA vs IA)
@@ -97,7 +94,7 @@ public class Turn : MonoBehaviour
 
         if (enemies.Count == 0)
         {
-            Debug.Log("THERE ARE NO CHARACTERS ON THE OPPOSITE TEAM");
+            Debug.Log("THERE ARE NO CHARACTERS ON THE OPPOSITE TEAM, GAME DONE.\nRestart above ^^^^");
             return null;
         }
 

@@ -23,8 +23,7 @@ public class Trap : BattleAction
         {
             if (attacked_char.trapped)
             {
-                Debug.Log(this_char.char_name + " tries putting a trap in front of " +
-                    attacked_char.char_name + " but there is already one");
+                Debug.Log(this_char.char_name + " tries putting a trap in front of " + attacked_char.char_name + " but there is already one");
 
 
             }

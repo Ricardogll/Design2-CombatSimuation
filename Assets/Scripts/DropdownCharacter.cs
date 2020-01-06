@@ -37,13 +37,6 @@ public class DropdownCharacter : MonoBehaviour
    
 
 
-    public void AddOptionsToDropdown()
-    {
-
-
-
-    }
-
     public void UpdateOptionsDropdownCharacters(int value)
     {
         
