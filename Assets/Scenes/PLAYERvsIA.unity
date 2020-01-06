@@ -1590,6 +1590,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: {fileID: 641350646}
+  drop_act: {fileID: 1695841514}
+  drop_char: {fileID: 1829137979}
+  current_char: 0
+  player_characters: []
 --- !u!114 &537738100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,7 +2329,7 @@ GameObject:
   - component: {fileID: 803592112}
   - component: {fileID: 803592111}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SelectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2393,7 +2397,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 803592112}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 537738099}
+        m_MethodName: SelectButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &803592112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4169,8 +4184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p_control: {fileID: 537738099}
-  turn: {fileID: 641350646}
-  current_char: 0
 --- !u!1 &1711214507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,4 +4606,3 @@ MonoBehaviour:
   p_control: {fileID: 537738099}
   turn: {fileID: 641350646}
   drop_action: {fileID: 1695841514}
-  current_char: 0
