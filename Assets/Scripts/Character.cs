@@ -6,21 +6,27 @@ public class Character : MonoBehaviour
 {
     public string char_name = "Name";
     public bool enemy = false;
+    public int level = 1;
     public int hp;
     public int attack;
     public int defense;
     public int healing;
     public int speed;
-    public List<BattleAction> AllActions;
+    public int healing_charges = 2;
+    //public List<BattleAction> AllActions;
     public List<BattleAction> PossibleActions;
+
+    public bool main_stat_hp = false;
+    public bool main_stat_attack = false;
+    public bool main_stat_speed = false;
 
     [HideInInspector] public bool trapped = false;
     [HideInInspector] public int attack_buff = 0;
     [HideInInspector] public int at_buff_turns = 0;
-    [HideInInspector] public int base_attack;
+    [HideInInspector] public int base_attack = 0;
 
-    [HideInInspector] public int base_hp;
-    [HideInInspector] public int healing_charges = 2;
+    [HideInInspector] public int base_hp = 0;
+    
 
     public BattleAction ChooseRandAction()
     {
@@ -30,6 +36,24 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (main_stat_hp)
+            hp += 3 / 2 * (level - 1);
+        else
+            hp += level - 1;
+
+        if (main_stat_attack)
+            attack += 3 / 2 * (level - 1);
+        else
+            attack += level - 1;
+
+        if (main_stat_speed)
+            speed += 3 / 2 * (level - 1);
+        else
+            speed += level - 1;
+
+        defense += (level - 1) / 2;
+
         base_attack = attack;
         base_hp = hp;
     }

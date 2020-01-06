@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+
 public class Turn : MonoBehaviour
 {
     public List<Character> characters;
@@ -15,7 +16,37 @@ public class Turn : MonoBehaviour
 
     public void OrderCharacters()
     {
-        characters.OrderByDescending(x => x.speed);
+
+        //characters.OrderByDescending(x => x.speed);
+        
+
+
+        List<int> speed_chars = new List<int>();
+
+        for (int i = 0; i < characters.Count; i++)
+        {
+            speed_chars.Add(characters[i].speed);
+        }
+
+        speed_chars.Sort();
+        speed_chars.Reverse();
+
+        List<Character> aux = new List<Character>();
+
+        for(int i = 0; i < characters.Count; i++)
+        {
+            for (int j = 0; j < characters.Count; j++)
+            {
+                if (speed_chars[i] == characters[j].speed && !aux.Contains(characters[j]))
+                {
+                    
+                    aux.Add(characters[j]);
+                    continue;
+                }
+            }
+        }
+
+        characters = aux;
 
         for (int i = 0; i < characters.Count; i++)
         {
@@ -27,6 +58,7 @@ public class Turn : MonoBehaviour
 
     public void PlayerVSIADoTurn(Selection p0, Selection p1)
     {
+        OrderCharacters();
 
         int index_p0 = characters.IndexOf(p0.this_char), index_p1 = characters.IndexOf(p1.this_char);
 

@@ -113,7 +113,6 @@ public class PlayerControl : MonoBehaviour
         {
             current_char = 0;
             Debug.Log("------- New Turn --------");
-            turn.OrderCharacters();
             turn.PlayerVSIADoTurn(player0_selection, player1_selection);
 
         }
