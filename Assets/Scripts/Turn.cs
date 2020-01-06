@@ -25,8 +25,13 @@ public class Turn : MonoBehaviour
 
     }
 
-    public void DoTurn()
+    public void DoTurnChar(Character c)
     {
+        //Turn for only 1 at a time
+    }
+
+    public void DoTurn()
+    {//All turn in 1 go (IA vs IA)
 
         for(int i = 0; i < characters.Count; i++)
         {
