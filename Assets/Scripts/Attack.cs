@@ -18,7 +18,7 @@ public class Attack : BattleAction
 
     public override void Execute(Character attacked_char)
     {
-        if (attacked_char != null)
+        if (attacked_char != null && this_char.hp > 0)
         {
             int damage = -this_char.attack + attacked_char.defense;
 

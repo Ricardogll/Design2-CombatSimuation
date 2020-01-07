@@ -88,6 +88,9 @@ public class Turn : MonoBehaviour
             }
 
         }
+
+        OrderCharacters();
+        LowerBuffTimers();
     }
 
    

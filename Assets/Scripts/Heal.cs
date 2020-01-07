@@ -17,7 +17,7 @@ public class Heal : BattleAction
 
     public override void Execute(Character attacked_char)
     {
-        if (attacked_char != null)
+        if (attacked_char != null && attacked_char.hp > 0 && this_char.hp > 0)
         {
             Debug.Log(this_char.char_name + " healing " + attacked_char.char_name + ": " + this_char.healing.ToString());
             attacked_char.ChangeHP(this_char.healing, true);
