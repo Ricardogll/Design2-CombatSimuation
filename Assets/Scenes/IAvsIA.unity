@@ -1522,26 +1522,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 641350647}
-    - target: {fileID: 753898674869029594, guid: 1c64e0c6982c1694d809098e7571f208,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartSceneAI
-      objectReference: {fileID: 0}
     - target: {fileID: 753898675376198151, guid: 1c64e0c6982c1694d809098e7571f208,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 641350647}
-    - target: {fileID: 753898675376198151, guid: 1c64e0c6982c1694d809098e7571f208,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartScenePLAYER
-      objectReference: {fileID: 0}
-    - target: {fileID: 8627944361719556544, guid: 1c64e0c6982c1694d809098e7571f208,
-        type: 3}
-      propertyPath: m_Text
-      value: Currently AI VS AI
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c64e0c6982c1694d809098e7571f208, type: 3}
 --- !u!224 &1021559398 stripped
